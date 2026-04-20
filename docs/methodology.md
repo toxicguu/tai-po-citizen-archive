@@ -47,19 +47,7 @@ Three structural decisions were taken before any field-level cleaning:
 
 3. **Faceted splitting.** The original `Type` column conflated content genre, format, and hosting platform. It was split into three orthogonal facets: `dc_type` (DCMI Type vocabulary), `dc_format` (genre/format), and `dcx_platform` (hosting). This follows Ranganathan's faceted classification principle.
 
-### 3.3 Field-level cleaning
-
-| Problem | Resolution |
-|---|---|
-| Column header `Name ` (trailing space) | Normalised to snake_case |
-| Column header `Plateform` (misspelled) | Renamed to `dcx_platform` |
-| Dates in 6+ formats (`2025-12-01 00:00:00`, `Dec 6, 2025`, `February 15, 2026`, `unknown`, `/`, `auto-update`, blanks) | All normalised to EDTF / ISO 8601. Unknown year = `uuuu`. `auto-update` recoded as `dcx_date_certainty = ongoing`. |
-| `unknown` encoded four ways (`unknown`, `/`, blank, `NaN`) | Unified: missing values = empty string; uncertain dates = `uuuu`; anonymised creators = `[anonymous]` with explicit `dcx_creator_anonymity` facet |
-| `Status` value `Stop` | Recoded as `inactive`; `ongoing` added for crowdsourced / auto-updating resources |
-| Creator column mixing anonymised labels and real handles | Separated via `dcx_creator_anonymity` facet (named / pseudonymous / anonymous_individual / anonymous_group / institutional) |
-| No stable identifier | Assigned local persistent identifiers `WFC-001` through `WFC-023` |
-
-### 3.4 Preservation of original intent
+### 3.3 Preservation of original intent
 
 Every cleaning decision was logged in the `cleaning_log` sheet with date, category, and rationale. The log serves as an audit trail enabling future reviewers to understand and, if needed, reverse transformations. See `cleaning_log.md` for the full log.
 
