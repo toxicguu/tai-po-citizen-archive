@@ -10,9 +10,9 @@ This document describes the workflow used to produce the cleaned registry and pr
 
 **Research question:** What is the preservation status of citizen-led digital archives documenting the Wang Fuk Court fire, and what preservation actions are required to prevent their loss?
 
-**Scope:** 23 digital archives identified by the case study author through community outreach, public search, and social media discovery between late 2025 and early 2026. Records include: GitHub repositories, Notion pages, Google Sheets and Forms, Vercel-hosted web apps, custom-domain websites, a StoryMap, a Google Calendar, a Google Drive folder, a YouTube documentary, a Wikimedia Commons collection, and two social media hashtag ecosystems.
+**Scope:** 21 digital archives identified by the case study author through community outreach, public search, and social media discovery between late 2025 and early 2026. Records include: GitHub repositories, Notion pages, Google Sheets and Forms, Vercel-hosted web apps, custom-domain websites, a StoryMap, a Google Calendar, a Google Drive folder, and two social media hashtag ecosystems.
 
-**Out of scope:** Professional media archives (other than the single CNA documentary included as a comparison case), government records, and personal archives not made public.
+**Out of scope:** Professional media archives, government records, and personal archives not made public.
 
 ---
 
