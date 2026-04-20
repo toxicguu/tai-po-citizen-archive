@@ -145,7 +145,7 @@ Dual licensing (CC BY 4.0 for metadata and documentation, MIT for code) follows 
 
 The methodology, framework, and schema in this repository are explicitly designed for reuse in other crisis-archive case studies. To adapt:
 
-1. Replace the 23 records in the registry with records from your case
+1. Replace the 21 records in the registry with records from your case
 2. Adjust the DCMI Type and format vocabularies if your material differs
 3. Re-score each record using the framework rubric in `framework` sheet — rubrics are event-independent
 4. Adjust the R5 (legal / political) baseline to reflect the political context of your case
