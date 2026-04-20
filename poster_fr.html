@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Archives Citoyennes de Wang Fuk Court — Paysage Fonctionnel</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'DM Sans', 'Helvetica Neue', Helvetica, sans-serif; background: linear-gradient(175deg, #FAFBFC 0%, #F3F4F6 40%, #EEF0F4 100%); color: #1a1a1a; padding: 28px 20px 20px; }
+@keyframes fadeSlideIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+.header { text-align: center; max-width: 780px; margin: 0 auto 24px; }
+.header .tag { font-size: 9px; font-weight: 700; letter-spacing: 3.5px; color: #9CA3AF; text-transform: uppercase; margin-bottom: 10px; }
+.header h1 { font-size: 26px; font-weight: 800; color: #111; letter-spacing: -0.8px; line-height: 1.15; margin-bottom: 6px; }
+.header h2 { font-size: 15px; font-weight: 500; color: #6b7280; margin-bottom: 14px; }
+.header p { font-size: 11px; color: #9CA3AF; max-width: 660px; margin: 0 auto 14px; line-height: 1.65; }
+.legend { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; font-size: 10.5px; color: #6b7280; align-items: center; }
+.pill { display: inline-block; padding: 1px 7px; border-radius: 20px; font-size: 9px; font-weight: 700; }
+.pill-high { background: #DC2626; color: #fff; }
+.pill-med { background: #F59E0B; color: #000; }
+.pill-low { background: #16A34A; color: #fff; }
+
+.main { max-width: 980px; margin: 0 auto; }
+.cat-row { display: flex; gap: 0; align-items: stretch; margin-bottom: 16px; opacity: 0; animation: fadeSlideIn 0.5s ease forwards; }
+.cat-label { flex: 0 0 260px; padding: 14px 20px; display: flex; flex-direction: column; justify-content: center; }
+.cat-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.cat-count { font-size: 10px; font-weight: 700; color: #9CA3AF; letter-spacing: 0.5px; }
+.cat-name { font-size: 14px; font-weight: 800; line-height: 1.25; letter-spacing: -0.2px; text-transform: uppercase; }
+.cat-sub { font-size: 10.5px; color: #6b7280; line-height: 1.45; margin-top: 6px; }
+.cat-cards { flex: 1; display: flex; flex-wrap: wrap; gap: 10px; padding: 10px 14px; border-radius: 0 10px 10px 0; align-items: flex-start; align-content: flex-start; }
+
+.card { position: relative; display: flex; flex-direction: column; gap: 6px; padding: 10px 12px; border-radius: 10px; background: #fff; border: 1.5px solid #e0e0e0; box-shadow: 0 1px 3px rgba(0,0,0,0.06); transition: all 0.25s ease; cursor: default; min-width: 148px; max-width: 172px; flex: 0 0 auto; }
+.card:hover { transform: translateY(-2px); }
+.card.ethical { border-color: rgba(220,38,38,0.38); box-shadow: 0 1px 6px rgba(220,38,38,0.1); }
+.card-id { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.5px; }
+.card-status { font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+.card-status.active { color: #16A34A; }
+.card-status.inactive { color: #9CA3AF; }
+.card-name { font-size: 12.5px; font-weight: 700; color: #1a1a1a; line-height: 1.3; }
+.card-pills { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 2px; }
+.plat-pill { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 9px; font-weight: 600; }
+.risk-pill { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 9px; font-weight: 700; }
+.ethics-flag { font-size: 9px; font-weight: 700; color: #DC2626; margin-top: 2px; letter-spacing: 0.3px; }
+
+.tooltip { position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%); width: 280px; padding: 12px 14px; border-radius: 8px; background: #111; color: #e8e8e8; font-size: 11px; line-height: 1.55; box-shadow: 0 8px 24px rgba(0,0,0,0.4); z-index: 100; pointer-events: none; display: none; }
+.tooltip .arrow { position: absolute; bottom: -5px; left: 50%; transform: translateX(-50%) rotate(45deg); width: 10px; height: 10px; background: #111; border-radius: 1px; }
+.tooltip .tt-title { font-weight: 700; margin-bottom: 6px; color: #fff; font-size: 12px; }
+.card:hover .tooltip { display: block; }
+
+.footer { max-width: 980px; margin: 20px auto 0; display: flex; justify-content: space-between; align-items: flex-start; border-top: 1px solid #ddd; padding-top: 14px; font-size: 9.5px; color: #9CA3AF; gap: 32px; flex-wrap: wrap; }
+.footer-col { line-height: 1.9; flex: 1; min-width: 200px; }
+.footer-col:last-child { flex: 0 0 auto; text-align: right; min-width: 150px; }
+.footer-label { font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: 1px; font-size: 8.5px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="tag">Étude de cas ICA — Registre des archives citoyennes et évaluation des risques de conservation</div>
+  <h1>Un Paysage Fonctionnel des Archives Numériques Citoyennes</h1>
+  <h2>Incendie de Wang Fuk Court, Tai Po, Hong Kong — 26 novembre 2025</h2>
+  <p>21 archives numériques créées par des citoyens, classées par fonction. Chaque carte représente une archive indépendante construite par des bénévoles anonymes, des individus sous pseudonyme ou des groupes communautaires dans les jours et semaines suivant la catastrophe. Aucune archive institutionnelle ou médiatique professionnelle n'est incluse. Survolez une carte pour une description détaillée.</p>
+  <div class="legend">
+    <span><span style="color:#16A34A">●</span> Actif (12) &nbsp;&nbsp; <span style="color:#9CA3AF">○</span> Inactif (9)</span>
+    <span>Risque de conservation : <span class="pill pill-high">ÉLEVÉ (3)</span> <span class="pill pill-med">MOYEN (14)</span> <span class="pill pill-low">FAIBLE (4)</span></span>
+  </div>
+</div>
+
+<div class="main" id="categories"></div>
+
+<div class="footer">
+  <div class="footer-col">
+    <span class="footer-label">Méthodologie</span><br>
+    Schéma : Dublin Core (simple) + extensions locales (dcx_)<br>
+    Cadre de risque : score à 6 dimensions Probabilité × Impact<br>
+    Encodage des dates : EDTF / ISO 8601 (uuuu = année inconnue)<br>
+    Descriptions : bilingues (cantonais original + français)
+  </div>
+  <div class="footer-col">
+    <span class="footer-label">Résultats clés</span><br>
+    1. L'abandon de gestion est le risque de conservation dominant<br>
+    2. Trois fiches nécessitent un examen éthique obligatoire (WFC-015, 016, 019)<br>
+    3. L'obsolescence des formats est la catégorie de risque la moins grave<br>
+    4. La crise de conservation concerne l'hébergement et la gestion, pas les formats
+  </div>
+  <div class="footer-col">
+    <span class="footer-label">Source</span><br>
+    Étude de cas ICA, avril 2026<br>
+    21 archives citoyennes · 6 catégories<br>
+    58 actions d'atténuation · CC BY 4.0
+  </div>
+</div>
+
+<script>
+const CATEGORIES = [
+  { id:"documentation", label:"Documentation & Enquête", subtitle:"Enregistrement systématique, collecte de preuves et analyse d'enquête indépendante de l'incendie", color:"#1B4332", bg:"#D8F3DC",
+    records:[
+      {id:"WFC-001",name:"HK Repository",platform:"Inconnu",status:"active",risk:"HIGH",desc:"Initiative de préservation numérique indépendante archivant les événements significatifs de Hong Kong. Recherche académique et intérêt public. Aucune URL canonique fournie — risque le plus élevé de disparition de lien du registre."},
+      {id:"WFC-002",name:"Archive Documentaire de l'Incendie HK",platform:"MkDocs",status:"active",risk:"MEDIUM",desc:"Dépôt documentaire exhaustif construit par des citoyens : coupures de presse, preuves vidéo, analyse technique de l'incendie, dossiers des entrepreneurs, journaux de coordination bénévole et réponses officielles. Utilise des outils chronologiques assistés par IA. ~17 500 visiteurs enregistrés."},
+      {id:"WFC-003",name:"Enquête sur l'Incendie de Wang Fuk Court",platform:"GitHub",status:"active",risk:"MEDIUM",desc:"Enquête indépendante et communautaire utilisant des preuves open-source et une méthodologie scientifique. Contient des modèles FDS (Fire Dynamics Simulator), des dossiers de preuves et des rapports d'analyse technique."},
+      {id:"WFC-019",name:"Archive Témoignages Threads",platform:"Google Drive",status:"active",risk:"HIGH",desc:"Sauvegarde systématique de publications Threads documentant les expériences de première main des survivants et victimes. L'agrégation de publications individuellement publiques crée une nouvelle exposition éthique. Nécessite un examen éthique avant toute conservation."},
+    ]},
+  { id:"missing", label:"Personnes Disparues & Vérification de Sécurité", subtitle:"Plateformes participatives pour localiser les membres de famille déplacés et confirmer l'état de sécurité des résidents", color:"#6A040F", bg:"#FDE8E8",
+    records:[
+      {id:"WFC-006",name:"Plateforme de Vérification de Sécurité",platform:"Google Form",status:"inactive",risk:"MEDIUM",desc:"Établie par des travailleurs communautaires actuels et anciens de Wang Fuk Court immédiatement après l'incendie, en réponse à la détresse et à l'anxiété des résidents."},
+      {id:"WFC-015",name:"Registre de Sécurité Participatif",platform:"Google Sheets",status:"inactive",risk:"HIGH",desc:"Tableur maintenu collaborativement où les voisins signalent volontairement l'état de sécurité des résidents. Contient des données potentiellement identifiables sur les personnes disparues. RISQUE ÉTHIQUE LE PLUS ÉLEVÉ — examen éthique obligatoire avant toute action de conservation."},
+      {id:"WFC-016",name:"Annuaire de Recherche Familiale",platform:"Vercel",status:"active",risk:"HIGH",desc:"Annuaire web en temps réel reliant les résidents déplacés aux refuges pour faciliter les retrouvailles familiales. Hébergement Vercel niveau gratuit (volatile) combiné à des données personnelles sensibles. Nécessite un examen éthique."},
+      {id:"WFC-017",name:"Centre de Recherche & Entraide",platform:"Vercel",status:"inactive",risk:"MEDIUM",desc:"Plateforme intégrée combinant recherche de personnes disparues, coordination des secours et recrutement de bénévoles. Désormais inactive."},
+    ]},
+  { id:"resources", label:"Agrégation de Ressources & Coordination d'Aide", subtitle:"Plateformes centralisant fournitures, services, hébergement et information de soutien pour les résidents déplacés", color:"#0353A4", bg:"#D6E4F0",
+    records:[
+      {id:"WFC-004",name:"Centre de 350+ Ressources",platform:"Notion",status:"active",risk:"MEDIUM",desc:"Agrégateur manuel avec un objectif de stabilité à long terme. Divisé en sections ressources pour victimes et pour bénévoles."},
+      {id:"WFC-007",name:"Carte des Fournitures Tai Po",platform:"Esri ArcGIS",status:"inactive",risk:"MEDIUM",desc:"Carte géospatiale traçant les points de distribution à travers le district de Tai Po. Mises à jour cessées après l'émergence d'autres plateformes. Format propriétaire Esri."},
+      {id:"WFC-008",name:"Centre de Coordination d'Urgence",platform:"GitHub",status:"inactive",risk:"MEDIUM",desc:"Application web d'entraide communautaire : catégorisation de l'information, appariement demandes/offres d'aide, design accessible aux aînés et outils d'urgence."},
+      {id:"WFC-009",name:"Care Wang Fuk",platform:"Site Web",status:"active",risk:"MEDIUM",desc:"Plateforme citoyenne agrégeant données ouvertes gouvernementales, ensembles de données spatiales, formulaires de sécurité de quartier et annonces officielles."},
+      {id:"WFC-013",name:"Annuaire de Soutien MTC",platform:"Google Sheets",status:"active",risk:"LOW",desc:"Annuaire compilé de praticiens de médecine traditionnelle chinoise offrant des services gratuits ou subventionnés aux résidents touchés."},
+      {id:"WFC-014",name:"Carnet de Ressources d'Urgence",platform:"Vercel",status:"active",risk:"MEDIUM",desc:"Annuaire de ressources d'urgence construit avec génération de code assistée par IA (v0.dev). Vercel niveau gratuit — haute volatilité."},
+      {id:"WFC-018",name:"Flux d'Actualités Wang Fuk Court",platform:"collection.news",status:"inactive",risk:"MEDIUM",desc:"Mises à jour d'actualités d'urgence, informations sur refuges, listes de fournitures catégorisées. Plateforme de niche avec longévité incertaine."},
+    ]},
+  { id:"specialist", label:"Soutien Professionnel Spécialisé", subtitle:"Services ciblés par des professionnels juridiques, médicaux et de santé mentale mobilisés via des réseaux citoyens", color:"#5A189A", bg:"#E8DAFB",
+    records:[
+      {id:"WFC-010",name:"Portail d'Aide Juridique",platform:"Site Web",status:"active",risk:"MEDIUM",desc:"FAQ juridique développée par PILnet Hong Kong et des avocats bénévoles. Le soutien institutionnel réduit le risque de gestion."},
+      {id:"WFC-011",name:"Tai Po Vigil — Suivi des Dons",platform:"Site Web",status:"active",risk:"MEDIUM",desc:"Plateforme de responsabilisation suivant les dons d'aide aux familles touchées. Assure la transparence. Le gestionnaire utilise ProtonMail — indique une conscience de sécurité opérationnelle."},
+      {id:"WFC-012",name:"Calendrier de Ressources Psychoéducatives",platform:"Google Calendar",status:"inactive",risk:"MEDIUM",desc:"Calendrier public partagé agrégeant séances psychoéducatives, formations sur les soins tenant compte des traumatismes, conférences communautaires et ateliers."},
+    ]},
+  { id:"social", label:"Écosystèmes de Hashtags sur Médias Sociaux", subtitle:"Réseaux de hashtags distribués et générés par la communauté formant un registre collectif décentralisé sur les plateformes Meta", color:"#774936", bg:"#F0E6DE",
+    records:[
+      {id:"WFC-020",name:"Écosystème Hashtag Threads",platform:"Threads",status:"active",risk:"LOW",desc:"Écosystème consolidé de 8 hashtags cantonais sur Threads, incluant #HongKongFire, #WangFukCourtFire, #WangFukHearing, et le compte @wangfukmemories. Distribué par la communauté, sans gestionnaire unique."},
+      {id:"WFC-021",name:"Écosystème Hashtag Instagram",platform:"Instagram",status:"active",risk:"LOW",desc:"Écosystème consolidé de 6 hashtags cantonais sur Instagram, incluant #WangFukCourtFire, #TaiPoFire, et le compte @writingforwangfuk. Soumis à la modération de contenu Meta."},
+    ]},
+  { id:"memorial", label:"Mémorial & Commémoration", subtitle:"Espaces numériques dédiés au deuil collectif, au souvenir et au témoignage", color:"#3D405B", bg:"#E8E8EE",
+    records:[
+      {id:"WFC-005",name:"Site Mémorial Wang Fuk Court",platform:"Site Web",status:"inactive",risk:"MEDIUM",desc:"Mémorial numérique : « Souvenir éternel de Wang Fuk Court ». Domaine personnalisé taipo-fire.org. Déjà inactif — le renouvellement du domaine est le point de défaillance unique."},
+    ]},
+];
+
+const PLAT_COLORS = {"GitHub":"#24292e","Google Sheets":"#0F9D58","Google Form":"#673AB7","Google Drive":"#4285F4","Google Calendar":"#DB4437","Notion":"#000","Site Web":"#2196F3","MkDocs":"#526CFE","Vercel":"#000","Esri ArcGIS":"#007AC2","Threads":"#000","Instagram":"#E1306C","collection.news":"#607D8B","Inconnu":"#9E9E9E"};
+const RISK_BG = {HIGH:"#DC2626",MEDIUM:"#F59E0B",LOW:"#16A34A"};
+const RISK_FG = {HIGH:"#fff",MEDIUM:"#000",LOW:"#fff"};
+const RISK_LABEL = {HIGH:"ÉLEVÉ",MEDIUM:"MOYEN",LOW:"FAIBLE"};
+const STATUS_LABEL = {active:"Actif", inactive:"Inactif"};
+
+function renderCard(r, catColor) {
+  const pc = PLAT_COLORS[r.platform]||"#666";
+  const isEth = r.desc.includes("examen éthique") || r.desc.includes("éthique obligatoire");
+  return `<div class="card${isEth?' ethical':''}" onmouseenter="this.style.borderColor='${catColor}';this.style.boxShadow='0 4px 16px ${catColor}30'" onmouseleave="this.style.borderColor='${isEth?'rgba(220,38,38,0.38)':'#e0e0e0'}';this.style.boxShadow='${isEth?'0 1px 6px rgba(220,38,38,0.1)':'0 1px 3px rgba(0,0,0,0.06)'}'">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <span class="card-id" style="color:${catColor}">${r.id}</span>
+      <span class="card-status ${r.status}">${r.status==='active'?'●':'○'} ${STATUS_LABEL[r.status]}</span>
+    </div>
+    <div class="card-name">${r.name}</div>
+    <div class="card-pills">
+      <span class="plat-pill" style="background:${pc}14;color:${pc};border:1px solid ${pc}30">${r.platform}</span>
+      <span class="risk-pill" style="background:${RISK_BG[r.risk]};color:${RISK_FG[r.risk]}">RISQUE ${RISK_LABEL[r.risk]}</span>
+    </div>
+    ${isEth?'<div class="ethics-flag">⚠ EXAMEN ÉTHIQUE REQUIS</div>':''}
+    <div class="tooltip"><div class="tt-title">${r.id} — ${r.name}</div>${r.desc}<div class="arrow"></div></div>
+  </div>`;
+}
+
+function renderCategory(cat, i) {
+  return `<div class="cat-row" style="animation-delay:${i*0.08}s">
+    <div class="cat-label" style="border-right:3px solid ${cat.color}">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+        <div class="cat-dot" style="background:${cat.color}"></div>
+        <span class="cat-count">${cat.records.length} ARCHIVE${cat.records.length>1?'S':''}</span>
+      </div>
+      <div class="cat-name" style="color:${cat.color}">${cat.label}</div>
+      <div class="cat-sub">${cat.subtitle}</div>
+    </div>
+    <div class="cat-cards" style="background:${cat.bg}80">
+      ${cat.records.map(r=>renderCard(r,cat.color)).join('')}
+    </div>
+  </div>`;
+}
+
+document.getElementById('categories').innerHTML = CATEGORIES.map((c,i)=>renderCategory(c,i)).join('');
+</script>
+</body>
+</html>

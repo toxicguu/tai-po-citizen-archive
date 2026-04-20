@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>宏福苑公民檔案 — 功能全景圖</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif; background: linear-gradient(175deg, #FAFBFC 0%, #F3F4F6 40%, #EEF0F4 100%); color: #1a1a1a; padding: 28px 20px 20px; }
+@keyframes fadeSlideIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+.header { text-align: center; max-width: 780px; margin: 0 auto 24px; }
+.header .tag { font-size: 9.5px; font-weight: 700; letter-spacing: 2.5px; color: #9CA3AF; margin-bottom: 10px; }
+.header h1 { font-size: 26px; font-weight: 800; color: #111; letter-spacing: -0.3px; line-height: 1.3; margin-bottom: 8px; }
+.header h2 { font-size: 15px; font-weight: 500; color: #6b7280; margin-bottom: 14px; }
+.header p { font-size: 12px; color: #9CA3AF; max-width: 680px; margin: 0 auto 14px; line-height: 1.75; }
+.legend { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; font-size: 11px; color: #6b7280; align-items: center; }
+.pill { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 10px; font-weight: 700; }
+.pill-high { background: #DC2626; color: #fff; }
+.pill-med { background: #F59E0B; color: #000; }
+.pill-low { background: #16A34A; color: #fff; }
+
+.main { max-width: 980px; margin: 0 auto; }
+.cat-row { display: flex; gap: 0; align-items: stretch; margin-bottom: 16px; opacity: 0; animation: fadeSlideIn 0.5s ease forwards; }
+.cat-label { flex: 0 0 240px; padding: 14px 20px; display: flex; flex-direction: column; justify-content: center; }
+.cat-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.cat-count { font-size: 11px; font-weight: 700; color: #9CA3AF; letter-spacing: 0.5px; }
+.cat-name { font-size: 15px; font-weight: 800; line-height: 1.35; letter-spacing: 0.2px; }
+.cat-sub { font-size: 11.5px; color: #6b7280; line-height: 1.6; margin-top: 6px; }
+.cat-cards { flex: 1; display: flex; flex-wrap: wrap; gap: 10px; padding: 10px 14px; border-radius: 0 10px 10px 0; align-items: flex-start; align-content: flex-start; }
+
+.card { position: relative; display: flex; flex-direction: column; gap: 6px; padding: 10px 12px; border-radius: 10px; background: #fff; border: 1.5px solid #e0e0e0; box-shadow: 0 1px 3px rgba(0,0,0,0.06); transition: all 0.25s ease; cursor: default; min-width: 148px; max-width: 178px; flex: 0 0 auto; }
+.card:hover { transform: translateY(-2px); }
+.card.ethical { border-color: rgba(220,38,38,0.38); box-shadow: 0 1px 6px rgba(220,38,38,0.1); }
+.card-id { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.5px; }
+.card-status { font-size: 10px; font-weight: 600; }
+.card-status.active { color: #16A34A; }
+.card-status.inactive { color: #9CA3AF; }
+.card-name { font-size: 13px; font-weight: 700; color: #1a1a1a; line-height: 1.4; }
+.card-pills { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 2px; }
+.plat-pill { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 10px; font-weight: 600; }
+.risk-pill { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 10px; font-weight: 700; }
+.ethics-flag { font-size: 10px; font-weight: 700; color: #DC2626; margin-top: 2px; }
+
+.tooltip { position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%); width: 280px; padding: 12px 14px; border-radius: 8px; background: #111; color: #e8e8e8; font-size: 12px; line-height: 1.7; box-shadow: 0 8px 24px rgba(0,0,0,0.4); z-index: 100; pointer-events: none; display: none; }
+.tooltip .arrow { position: absolute; bottom: -5px; left: 50%; transform: translateX(-50%) rotate(45deg); width: 10px; height: 10px; background: #111; border-radius: 1px; }
+.tooltip .tt-title { font-weight: 700; margin-bottom: 6px; color: #fff; font-size: 13px; }
+.card:hover .tooltip { display: block; }
+
+.footer { max-width: 980px; margin: 20px auto 0; display: flex; justify-content: space-between; align-items: flex-start; border-top: 1px solid #ddd; padding-top: 14px; font-size: 10.5px; color: #9CA3AF; gap: 32px; flex-wrap: wrap; }
+.footer-col { line-height: 2; flex: 1; min-width: 200px; }
+.footer-col:last-child { flex: 0 0 auto; text-align: right; min-width: 150px; }
+.footer-label { font-weight: 700; color: #6b7280; letter-spacing: 1px; font-size: 10px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="tag">ICA 案例研究 — 公民檔案登記冊與保存風險評估</div>
+  <h1>公民數碼檔案的功能全景圖</h1>
+  <h2>宏福苑火災，香港大埔 — 2025年11月26日</h2>
+  <p>21個由公民建立的數碼檔案，按功能用途分類。每張卡片代表一個獨立檔案，由匿名志願者、化名個人或社區團體於災後數天至數週內建立。不包括任何機構或專業媒體檔案。將滑鼠停留在卡片上可查看詳細描述。</p>
+  <div class="legend">
+    <span><span style="color:#16A34A">●</span> 活躍 (12) &nbsp;&nbsp; <span style="color:#9CA3AF">○</span> 已停止 (9)</span>
+    <span>保存風險：<span class="pill pill-high">高 (3)</span> <span class="pill pill-med">中 (14)</span> <span class="pill pill-low">低 (4)</span></span>
+  </div>
+</div>
+
+<div class="main" id="categories"></div>
+
+<div class="footer">
+  <div class="footer-col">
+    <span class="footer-label">方法論</span><br>
+    架構：Dublin Core（簡化版）+ 本地擴展（dcx_）<br>
+    風險框架：六維度 可能性 × 影響 評分<br>
+    日期編碼：EDTF / ISO 8601（uuuu = 未知年份）<br>
+    描述：雙語（原文粵語 + 繁體中文）
+  </div>
+  <div class="footer-col">
+    <span class="footer-label">主要發現</span><br>
+    1. 管理者放棄是最主要的保存風險<br>
+    2. 三條記錄需強制倫理審查（WFC-015, 016, 019）<br>
+    3. 格式過時是風險最低的類別<br>
+    4. 保存危機在於託管與管理，而非檔案格式
+  </div>
+  <div class="footer-col">
+    <span class="footer-label">來源</span><br>
+    ICA 案例研究，2026 年 4 月<br>
+    21 個公民檔案 · 6 個類別<br>
+    58 項緩解措施 · CC BY 4.0
+  </div>
+</div>
+
+<script>
+const CATEGORIES = [
+  { id:"documentation", label:"記錄與調查", subtitle:"對火災事件的系統性記錄、證據收集及獨立調查分析", color:"#1B4332", bg:"#D8F3DC",
+    records:[
+      {id:"WFC-001",name:"HK Repository 事件檔案庫",platform:"未知",status:"active",risk:"HIGH",desc:"獨立的數碼保存計劃，存檔香港歷史上的重要事件，供學術研究及公眾利益用途。未提供標準網址 — 登記冊中鏈接失效風險最高。"},
+      {id:"WFC-002",name:"11.26 大埔宏福苑火災紀錄庫",platform:"MkDocs",status:"active",risk:"MEDIUM",desc:"由公民建立的綜合紀錄庫：新聞剪報、影像證據、火災技術分析、承辦商記錄、義工協調日誌及官方政府回應。使用 AI 輔助時間線工具。約 17,500 訪客紀錄。"},
+      {id:"WFC-003",name:"宏福苑火災調查",platform:"GitHub",status:"active",risk:"MEDIUM",desc:"獨立、社區驅動的調查，運用開源證據及科學方法。包含 FDS（火災動力學模擬器）模型、證據資料夾及技術分析報告。"},
+      {id:"WFC-019",name:"宏福苑 Threads 備份",platform:"Google Drive",status:"active",risk:"HIGH",desc:"系統性備份的 Threads 貼文，記錄倖存者及受災者的第一手經歷。聚合本屬公開的個別貼文會產生新的倫理暴露風險。保存前需倫理審查。"},
+    ]},
+  { id:"missing", label:"尋親與報平安", subtitle:"協助尋找流離失所家人及確認居民安全狀況的眾包平台", color:"#6A040F", bg:"#FDE8E8",
+    records:[
+      {id:"WFC-006",name:"宏福苑報平安【齋睇】",platform:"Google Form",status:"inactive",risk:"MEDIUM",desc:"由宏福苑社區曾任及現任工作者於火災後立即設立，回應居民群組中表達的痛苦、徬徨與焦急。"},
+      {id:"WFC-015",name:"眾包安全登記冊",platform:"Google Sheets",status:"inactive",risk:"HIGH",desc:"街坊自發協作更新的試算表，志願報告居民安全狀況。包含可能識別身份的尋親資料。登記冊中倫理風險最高 — 任何保存行動前需強制審查。"},
+      {id:"WFC-016",name:"尋親庇護中心名單",platform:"Vercel",status:"active",risk:"HIGH",desc:"實時網頁目錄，配對流離失所居民與庇護所位置，促進家庭重聚。Vercel 免費層（不穩定）結合敏感個人資料。需倫理審查。"},
+      {id:"WFC-017",name:"協尋與救助平台",platform:"Vercel",status:"inactive",risk:"MEDIUM",desc:"整合尋親、救災協調及義工招募於單一介面的平台。現已停止運作。"},
+    ]},
+  { id:"resources", label:"資源整合與援助協調", subtitle:"整合物資、服務、庇護及支援資訊的一站式平台，服務流離失所居民", color:"#0353A4", bg:"#D6E4F0",
+    records:[
+      {id:"WFC-004",name:"大埔火災 全港350+資源整合網",platform:"Notion",status:"active",risk:"MEDIUM",desc:"以長期穩定為目標的人手統整一站式平台。分為災民用及義工用資源兩部分。"},
+      {id:"WFC-007",name:"大埔物資地圖",platform:"Esri ArcGIS",status:"inactive",risk:"MEDIUM",desc:"標示大埔區物資分發點的地理空間地圖。隨著其他平台成熟後停止更新。Esri 專有格式。"},
+      {id:"WFC-008",name:"香港緊急協調中心",platform:"GitHub",status:"inactive",risk:"MEDIUM",desc:"社區互助網頁應用程式：資訊分類整合、求助/互助配對、長者友善設計及緊急工具。"},
+      {id:"WFC-009",name:"Care Wang Fuk",platform:"網站",status:"active",risk:"MEDIUM",desc:"公民建立的資源平台，整合政府開放數據、空間數據集、街坊安全表格及官方公告。"},
+      {id:"WFC-013",name:"宏福苑火災中醫支援",platform:"Google Sheets",status:"active",risk:"LOW",desc:"整合為受災居民提供免費或資助服務的中醫師目錄。"},
+      {id:"WFC-014",name:"大埔宏福苑緊急資源簿",platform:"Vercel",status:"active",risk:"MEDIUM",desc:"使用 AI 輔助代碼生成（v0.dev）建立的緊急資源目錄。Vercel 免費層 — 平台高度不穩定。"},
+      {id:"WFC-018",name:"宏福苑消息",platform:"collection.news",status:"inactive",risk:"MEDIUM",desc:"整合緊急消息更新、臨時庇護中心資訊、分類物資清單及支援服務詳情。託管於壽命不明的小眾平台。"},
+    ]},
+  { id:"specialist", label:"專業支援服務", subtitle:"由公民網絡動員的法律、醫療及心理健康專業人員提供的針對性服務", color:"#5A189A", bg:"#E8DAFB",
+    records:[
+      {id:"WFC-010",name:"大埔宏福苑火災法律支援",platform:"網站",status:"active",risk:"MEDIUM",desc:"由公益法香港及義務大律師/律師開發的法律常見問答。機構支持降低管理風險。"},
+      {id:"WFC-011",name:"大埔守望 — 捐款追蹤",platform:"網站",status:"active",risk:"MEDIUM",desc:"追蹤援助捐款予受影響家庭的問責平台。確保透明度。管理者使用 ProtonMail — 顯示其具備操作安全意識。"},
+      {id:"WFC-012",name:"心理教育資源日曆",platform:"Google Calendar",status:"inactive",risk:"MEDIUM",desc:"公開共享日曆，整合心理教育課堂、創傷知情照護培訓、社區講座及工作坊。"},
+    ]},
+  { id:"social", label:"社交媒體標籤生態", subtitle:"跨 Meta 平台的分散式、社群生成的標籤網絡，形成去中心化的集體記錄", color:"#774936", bg:"#F0E6DE",
+    records:[
+      {id:"WFC-020",name:"Threads 標籤生態",platform:"Threads",status:"active",risk:"LOW",desc:"Threads 上 8 個粵語標籤的整合生態，包括 #香港大火、#宏福苑火災、#宏福苑聽證會 及帳號 @wangfukmemories。社群分散式，無單一管理者。"},
+      {id:"WFC-021",name:"Instagram 標籤生態",platform:"Instagram",status:"active",risk:"LOW",desc:"Instagram 上 6 個粵語標籤的整合生態，包括 #宏福苑大火、#大埔火災 及帳號 @writingforwangfuk。受 Meta 內容審核規範。"},
+    ]},
+  { id:"memorial", label:"紀念與悼念", subtitle:"專為集體悼念、追憶及見證而設的數碼空間", color:"#3D405B", bg:"#E8E8EE",
+    records:[
+      {id:"WFC-005",name:"永遠紀念宏福苑",platform:"網站",status:"inactive",risk:"MEDIUM",desc:"數碼紀念平台：「永遠紀念宏福苑」。自訂域名 taipo-fire.org。已停止運作 — 域名續期為唯一故障點。"},
+    ]},
+];
+
+const PLAT_COLORS = {"GitHub":"#24292e","Google Sheets":"#0F9D58","Google Form":"#673AB7","Google Drive":"#4285F4","Google Calendar":"#DB4437","Notion":"#000","網站":"#2196F3","MkDocs":"#526CFE","Vercel":"#000","Esri ArcGIS":"#007AC2","Threads":"#000","Instagram":"#E1306C","collection.news":"#607D8B","未知":"#9E9E9E"};
+const RISK_BG = {HIGH:"#DC2626",MEDIUM:"#F59E0B",LOW:"#16A34A"};
+const RISK_FG = {HIGH:"#fff",MEDIUM:"#000",LOW:"#fff"};
+const RISK_LABEL = {HIGH:"高",MEDIUM:"中",LOW:"低"};
+const STATUS_LABEL = {active:"活躍", inactive:"已停止"};
+
+function renderCard(r, catColor) {
+  const pc = PLAT_COLORS[r.platform]||"#666";
+  const isEth = r.desc.includes("倫理審查") || r.desc.includes("強制審查");
+  return `<div class="card${isEth?' ethical':''}" onmouseenter="this.style.borderColor='${catColor}';this.style.boxShadow='0 4px 16px ${catColor}30'" onmouseleave="this.style.borderColor='${isEth?'rgba(220,38,38,0.38)':'#e0e0e0'}';this.style.boxShadow='${isEth?'0 1px 6px rgba(220,38,38,0.1)':'0 1px 3px rgba(0,0,0,0.06)'}'">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <span class="card-id" style="color:${catColor}">${r.id}</span>
+      <span class="card-status ${r.status}">${r.status==='active'?'●':'○'} ${STATUS_LABEL[r.status]}</span>
+    </div>
+    <div class="card-name">${r.name}</div>
+    <div class="card-pills">
+      <span class="plat-pill" style="background:${pc}14;color:${pc};border:1px solid ${pc}30">${r.platform}</span>
+      <span class="risk-pill" style="background:${RISK_BG[r.risk]};color:${RISK_FG[r.risk]}">${RISK_LABEL[r.risk]}風險</span>
+    </div>
+    ${isEth?'<div class="ethics-flag">⚠ 需倫理審查</div>':''}
+    <div class="tooltip"><div class="tt-title">${r.id} — ${r.name}</div>${r.desc}<div class="arrow"></div></div>
+  </div>`;
+}
+
+function renderCategory(cat, i) {
+  return `<div class="cat-row" style="animation-delay:${i*0.08}s">
+    <div class="cat-label" style="border-right:3px solid ${cat.color}">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+        <div class="cat-dot" style="background:${cat.color}"></div>
+        <span class="cat-count">${cat.records.length} 個檔案</span>
+      </div>
+      <div class="cat-name" style="color:${cat.color}">${cat.label}</div>
+      <div class="cat-sub">${cat.subtitle}</div>
+    </div>
+    <div class="cat-cards" style="background:${cat.bg}80">
+      ${cat.records.map(r=>renderCard(r,cat.color)).join('')}
+    </div>
+  </div>`;
+}
+
+document.getElementById('categories').innerHTML = CATEGORIES.map((c,i)=>renderCategory(c,i)).join('');
+</script>
+</body>
+</html>
