@@ -175,6 +175,32 @@ If you use this registry or methodology, please cite using [`CITATION.cff`](CITA
 > NG Wing Lam. 2026. *Tai Po Wang Fuk Court Citizen Archive Registry and Preservation Risk Assessment.* ICA Case Study. https://github.com/toxicguu/tai-po-citizen-archive
 
 ---
+## AI-Assisted Development
+
+This project was developed with extensive use of Anthropic's Claude AI assistant as a technical and editorial collaborator. The division of labour was as follows:
+
+**Author's intellectual work:**
+- Case selection and identification of the Wang Fuk Court citizen archive ecosystem as an object of study
+- Field collection of the original 23 records (narrowed to 21 after scope decisions)
+- Theoretical framing (post-custodial archival framework, Cook 2013; Flinn 2007)
+- Choice of classification axis (by function) and ethical commitments (no de-anonymisation; aggregation harm recognition)
+- All judgment calls on scope, categorisation, risk scoring rationale, and inclusion/exclusion of records
+- Domain expertise on Hong Kong civic and media context, Cantonese-language material, and the post-2025 political environment
+- Validation and approval of every deliverable prior to publication
+
+**Claude's assistance:**
+- Python and JavaScript code for data cleaning, schema generation, validation, and visualisation
+- Initial drafting of methodology, schema, cleaning log, and ethics documentation (all reviewed and revised by the author)
+- Formatting of XLSX workbooks, Word documents, and HTML/PNG visual guides
+- Translation assistance (Cantonese ↔ English ↔ French) with author verification of Cantonese-specific vocabulary
+
+**Why disclose this:**
+
+Transparency about AI-assisted workflows is itself aligned with the project's methodological stance. Just as this study argues that information professionals can support community-led archival practice without displacing community agency, the author believes researchers can use AI tools without displacing scholarly judgment — provided the collaboration is disclosed, the intellectual direction remains human, and the outputs are validated against primary literature and professional standards.
+
+This disclosure follows emerging practice in archival scholarship (2025–2026) where AI-assisted research workflows are increasingly documented as part of methodology rather than concealed. Readers are invited to evaluate this project on the quality of its reasoning, the soundness of its theoretical grounding, and the reusability of its framework — with full knowledge of how it was produced.
+
+---
 
 ## Licence
 
