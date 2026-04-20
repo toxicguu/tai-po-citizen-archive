@@ -76,7 +76,6 @@ The following identifying information was retained in the registry because it ha
 - `hklittlefinger@gmail.com` (WFC-003) — published in the curator's own README
 - `taipovigil.hk@proton.me` (WFC-011) — published on the curator's own site
 - `@hkbackupper` (WFC-019) — Threads handle, self-associated with the Google Drive
-- `CNA (Channel News Asia)` (WFC-022) — institutional broadcaster
 
 No inference was made beyond what curators had themselves published.
 
