@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use this registry or methodology, please cite as below."
+title: "Tai Po Wang Fuk Court Citizen Archive: Registry and Preservation Risk Assessment"
+abstract: >
+  A structured metadata registry and preservation risk assessment of 21
+  citizen-led digital archives documenting the Wang Fuk Court fire
+  (Tai Po, Hong Kong, 26 November 2025). Scope limited to citizen-created
+  archives only (institutional media and open-infrastructure repositories
+  excluded). Case study prepared for the International Council on Archives
+  on distributed, volunteer-maintained crisis archives. Includes a Dublin
+  Core application profile, bilingual descriptions, EDTF date handling,
+  a six-dimensional risk assessment framework, and per-record mitigation
+  action plans.
+type: dataset
+version: "1.1.0"
+date-released: "2026-04-16"
+license: CC-BY-4.0
+keywords:
+  - citizen archives
+  - digital preservation
+  - crisis informatics
+  - Hong Kong
+  - Wang Fuk Court
+  - Tai Po fire
+  - Dublin Core
+  - EDTF
+  - risk assessment
+  - ICA case study
+repository-code: "https://github.com/YOUR-USERNAME/tai-po-citizen-archive"

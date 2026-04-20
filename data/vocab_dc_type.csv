@@ -1,0 +1,5 @@
+term,definition
+Collection,DCMI Type: aggregation of resources.
+Dataset,DCMI Type: structured data.
+InteractiveResource,"DCMI Type: requires user interaction (web app, map, form)."
+Software,DCMI Type: executable code / application.

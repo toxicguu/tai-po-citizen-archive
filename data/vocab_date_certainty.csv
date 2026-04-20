@@ -1,0 +1,5 @@
+term,definition
+known,Exact date confirmed from source.
+approximate,Month or year inferred; day uncertain.
+unknown,No date information available (EDTF 'uuuu').
+ongoing,Continuously updated; not applicable.

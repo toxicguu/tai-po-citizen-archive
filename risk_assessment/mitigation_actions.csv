@@ -1,0 +1,59 @@
+id,title,priority,action
+WFC-001,HK Repository — 事件檔案庫,URGENT,Contact curator to obtain canonical URL; without it the record cannot be preserved.
+WFC-001,HK Repository — 事件檔案庫,SHORT-TERM,If URL recovered: submit to Internet Archive Wayback Machine.
+WFC-001,HK Repository — 事件檔案庫,LONG-TERM,"If platform identified, evaluate for WARC capture via Webrecorder/Conifer."
+WFC-002,11.26 大埔宏福苑火災紀錄庫,SHORT-TERM,Clone MkDocs source if publicly available; Markdown = ideal for Git preservation.
+WFC-002,11.26 大埔宏福苑火災紀錄庫,SHORT-TERM,WARC-capture rendered site via Browsertrix to preserve visual form.
+WFC-002,11.26 大埔宏福苑火災紀錄庫,SHORT-TERM,Archive in Internet Archive with multiple snapshots.
+WFC-002,11.26 大埔宏福苑火災紀錄庫,ONGOING,Document AI-assisted timeline workflow as paradata.
+WFC-003,wang-fuk-court-fire-investigation,SHORT-TERM,Fork the GitHub repo as mirror; enable 'Include all branches'.
+WFC-003,wang-fuk-court-fire-investigation,SHORT-TERM,Download release archive (.zip) and deposit in Zenodo for DOI.
+WFC-003,wang-fuk-court-fire-investigation,SHORT-TERM,FDS simulation files: verify formats documented; preserve input decks + output separately.
+WFC-003,wang-fuk-court-fire-investigation,ETHICAL,Do NOT mirror hklittlefinger@gmail.com in preservation copy — redact before deposit.
+WFC-003,wang-fuk-court-fire-investigation,LONG-TERM,Engage Software Heritage (softwareheritage.org).
+WFC-004,大埔火災 全港350+資源整合網,SHORT-TERM,Request curator run Notion 'Export as HTML' with all subpages.
+WFC-004,大埔火災 全港350+資源整合網,SHORT-TERM,Browsertrix crawl of public Notion page as fallback.
+WFC-005,永遠紀念宏福苑,URGENT,Already inactive — immediate Internet Archive snapshot before domain expires.
+WFC-005,永遠紀念宏福苑,SHORT-TERM,Check WHOIS for domain expiry date.
+WFC-005,永遠紀念宏福苑,SHORT-TERM,Full-site WARC crawl via Browsertrix.
+WFC-006,宏福苑報平安【齋睇】,URGENT,Ethical review: does form data contain identifiable missing-persons records?
+WFC-006,宏福苑報平安【齋睇】,URGENT,"If yes, consult digital preservation ethicist; default to metadata-only record."
+WFC-006,宏福苑報平安【齋睇】,SHORT-TERM,Capture public interface only (not underlying data) via Wayback Machine.
+WFC-007,大埔物資地圖,SHORT-TERM,Request curator export layers as GeoJSON or Shapefile — open formats.
+WFC-007,大埔物資地圖,SHORT-TERM,Capture StoryMap visual form via Browsertrix.
+WFC-007,大埔物資地圖,LONG-TERM,Deposit GeoJSON in open repository (Zenodo).
+WFC-008,HK Emergency Coordination Hub,SHORT-TERM,Fork GitHub repo and deposit to Zenodo for DOI.
+WFC-008,HK Emergency Coordination Hub,SHORT-TERM,Software Heritage crawl.
+WFC-009,Care Wang Fuk,SHORT-TERM,Internet Archive snapshot.
+WFC-009,Care Wang Fuk,ONGOING,Document that government open data sources are separately preservable.
+WFC-010,大埔宏福苑火災法律支援,SHORT-TERM,Outreach to 公益法香港 for self-preservation commitment.
+WFC-010,大埔宏福苑火災法律支援,SHORT-TERM,Internet Archive snapshot as safety net.
+WFC-011,大埔守望,URGENT,Politically high-risk — redundant capture: Internet Archive + Archive.today + local WARC.
+WFC-011,大埔守望,SHORT-TERM,Contact via ProtonMail for curator-sanctioned preservation copy.
+WFC-012,心理教育工作坊資源,SHORT-TERM,"Export calendar as .ics file — open, stable format."
+WFC-012,心理教育工作坊資源,SHORT-TERM,Capture public embed HTML via Wayback Machine.
+WFC-013,中醫支援資訊,SHORT-TERM,Export as both .xlsx and .csv for format redundancy.
+WFC-013,中醫支援資訊,SHORT-TERM,Verify sharing permissions are 'anyone with link'.
+WFC-014,緊急資源簿,SHORT-TERM,v0.dev apps ephemeral — urgent Internet Archive capture.
+WFC-014,緊急資源簿,SHORT-TERM,"If source exportable, deposit to Git."
+WFC-014,緊急資源簿,LONG-TERM,Document as AI-generated emergency tool for crisis informatics.
+WFC-015,宏福苑報平安 (Google Sheet),URGENT,HIGHEST ETHICAL RISK. Do not mirror dataset without ethical review.
+WFC-015,宏福苑報平安 (Google Sheet),URGENT,Consult curator and/or ethics board before any preservation action.
+WFC-015,宏福苑報平安 (Google Sheet),RECOMMENDED,"Metadata-only preservation: existence, NOT the rows of missing-persons data."
+WFC-015,宏福苑報平安 (Google Sheet),RECOMMENDED,"If justified, dark archive with 30-year embargo, researcher-only access."
+WFC-016,尋親庇護中心即時名單,URGENT,Same protocol as WFC-015 — ethical review required.
+WFC-016,尋親庇護中心即時名單,URGENT,"Vercel volatility — capture interface only, NOT underlying data."
+WFC-017,協尋與救助平台,URGENT,Vercel inactive — will likely disappear soon. Metadata-only safest.
+WFC-017,協尋與救助平台,SHORT-TERM,Internet Archive snapshot of landing page.
+WFC-018,宏福苑消息,SHORT-TERM,collection.news niche — priority Internet Archive capture.
+WFC-018,宏福苑消息,SHORT-TERM,Browsertrix crawl.
+WFC-019,宏福苑 Threads Back Up,URGENT,HIGH COMBINED RISK: victim accounts + pseudonymous curator + political sensitivity.
+WFC-019,宏福苑 Threads Back Up,URGENT,Do NOT publicly mirror or index the Google Drive contents.
+WFC-019,宏福苑 Threads Back Up,RECOMMENDED,Engage @hkbackupper for curator-directed preservation.
+WFC-019,宏福苑 Threads Back Up,RECOMMENDED,"Dark archive with tiered access: metadata public, content researcher-only under NDA."
+WFC-019,宏福苑 Threads Back Up,ETHICAL,Aggregating public Threads posts creates new exposure for victims.
+WFC-020,Threads hashtag ecosystem,SHORT-TERM,Capture aggregate statistics rather than individual posts.
+WFC-020,Threads hashtag ecosystem,SHORT-TERM,Hashtag list (in hashtags sheet) is the preservation artefact.
+WFC-020,Threads hashtag ecosystem,ETHICAL,Individual post preservation raises consent issues.
+WFC-021,Instagram hashtag ecosystem,SHORT-TERM,Same as WFC-020 — hashtag list + aggregate statistics.
+WFC-021,Instagram hashtag ecosystem,ETHICAL,Instagram API terms prohibit bulk archiving without permission.

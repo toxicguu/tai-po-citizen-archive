@@ -1,0 +1,22 @@
+id,title,platform,status,R1_L,R1_I,R1,R2_L,R2_I,R2,R3_L,R3_I,R3,R4_L,R4_I,R4,R5_L,R5_I,R5,R6_L,R6_I,R6,total,band,rationale
+WFC-001,HK Repository — 事件檔案庫,unknown,active,5,5,25,5,4,20,5,5,25,3,3,9,4,4,16,3,3,9,104,HIGH,"No canonical URL — total link-rot risk. Unknown platform, no preservation pathway. Anonymous custodian, no institutional backing."
+WFC-002,11.26 大埔宏福苑火災紀錄庫,MkDocs,active,3,4,12,3,4,12,3,5,15,2,3,6,4,5,20,3,3,9,74,MEDIUM,MkDocs static site (Markdown underneath — stable). Main risks: domain expiry and political takedown. Uses AI tools — workflow reproducibility risk.
+WFC-003,wang-fuk-court-fire-investigation,GitHub,active,2,3,6,2,3,6,3,4,12,1,2,2,4,5,20,4,4,16,62,MEDIUM,GitHub is forkable (low R1/R2). FDS files are specialist format (mild R4). Highest political-risk investigation in registry. Pseudonymous creator with public email = elevated personal risk.
+WFC-004,大埔火災 全港350+資源整合網,Notion,active,4,4,16,4,4,16,3,3,9,3,3,9,3,3,9,2,2,4,63,MEDIUM,Notion requires active subscription; export possible but not automatic.
+WFC-005,永遠紀念宏福苑,Website,inactive,4,4,16,3,3,9,5,5,25,2,2,4,3,3,9,2,2,4,67,MEDIUM,Already inactive — custodial abandonment has occurred. Domain renewal is single point of failure.
+WFC-006,宏福苑報平安【齋睇】,Google Form (Vercel),inactive,4,3,12,4,3,12,5,3,15,2,2,4,3,3,9,4,5,20,72,MEDIUM,Inactive safety check-in. Vercel free-tier volatile. Missing-persons data = high ethical risk.
+WFC-007,大埔物資地圖,Esri ArcGIS,inactive,4,4,16,4,4,16,5,4,20,3,3,9,2,2,4,2,2,4,69,MEDIUM,ArcGIS Online requires paid subscription. Curator stopped. Proprietary format.
+WFC-008,HK Emergency Coordination Hub,GitHub,inactive,2,3,6,2,3,6,4,3,12,1,2,2,4,4,16,3,3,9,51,LOW,"GitHub-hosted, preservable. Custodially inactive. May attract political attention."
+WFC-009,Care Wang Fuk,Website,active,4,4,16,3,3,9,3,3,9,3,3,9,3,3,9,2,2,4,56,LOW,Custom domain requires renewal. Some content re-derivable from government open data.
+WFC-010,大埔宏福苑火災法律支援,Website,active,3,4,12,2,3,6,2,3,6,2,2,4,4,5,20,2,3,6,54,LOW,Institutional backing (公益法香港) lowers custodial risk. Legal content politically sensitive but professionally defended.
+WFC-011,大埔守望,Website,active,4,4,16,3,3,9,3,4,12,2,2,4,4,5,20,3,4,12,73,MEDIUM,Donation tracking = politically exposed accountability content. ProtonMail contact indicates curator risk awareness.
+WFC-012,心理教育工作坊資源,Google Calendar,inactive,3,3,9,4,4,16,5,4,20,3,3,9,2,2,4,2,2,4,62,MEDIUM,Google Calendar embed depends on account persistence. Inactive + unknown owner.
+WFC-013,中醫支援資訊,Google Sheets,active,3,3,9,3,3,9,3,3,9,3,3,9,2,2,4,2,2,4,44,LOW,Google Sheets durable while account lives. Low political risk.
+WFC-014,緊急資源簿,Vercel (AI-built),active,4,3,12,5,4,20,4,3,12,4,3,12,2,2,4,2,2,4,64,MEDIUM,v0.dev / Vercel free-tier highly volatile. AI-generated code lacks reproducibility.
+WFC-015,宏福苑報平安 (Google Sheet),Google Sheets,inactive,4,4,16,3,3,9,5,4,20,2,2,4,3,3,9,5,5,25,83,MEDIUM,Highest ethical risk — crowdsourced missing-persons data with potentially identifiable entries. Inactive but accessible.
+WFC-016,尋親庇護中心即時名單,Vercel,active,4,4,16,5,4,20,4,3,12,3,3,9,3,3,9,5,5,25,91,HIGH,Vercel free-tier volatility + missing persons data = both technical and ethical crisis.
+WFC-017,協尋與救助平台,Vercel,inactive,4,4,16,5,4,20,5,3,15,3,3,9,3,3,9,4,4,16,85,MEDIUM,"Vercel, inactive, mutual-aid. Compounds Vercel risks with custodial abandonment."
+WFC-018,宏福苑消息,collection.news,inactive,4,3,12,5,4,20,5,3,15,3,3,9,3,3,9,2,2,4,69,MEDIUM,Niche platform with unclear longevity. Inactive + unknown custodian.
+WFC-019,宏福苑 Threads Back Up,Google Drive,active,3,4,12,3,4,12,4,5,20,2,3,6,5,5,25,5,5,25,100,HIGH,Victim first-hand accounts. Highest combined legal + ethical risk. Pseudonymous curator @hkbackupper is high-exposure target.
+WFC-020,Threads hashtag ecosystem,Threads,active,3,3,9,4,5,20,1,2,2,2,3,6,4,4,16,3,4,12,65,MEDIUM,Distributed hashtag aggregate. Depends on Meta/Threads continuity. Individual posts deletable by users or platform.
+WFC-021,Instagram hashtag ecosystem,Instagram,active,3,3,9,4,5,20,1,2,2,2,3,6,4,4,16,3,4,12,65,MEDIUM,Same as WFC-020. Instagram moderation can remove hashtags silently.
