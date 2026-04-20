@@ -55,6 +55,11 @@ This repository provides a **cleaned metadata registry** of 21 such archives, a 
 ```
 
 ---
+## Visual overview
+
+![Wang Fuk Court Citizen Archives — Functional Landscape](poster.png)
+
+> Interactive version: open [`poster.html`](poster.html) in a browser (download and open locally).
 
 ## Quick statistics
 
